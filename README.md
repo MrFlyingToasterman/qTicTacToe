@@ -8,3 +8,9 @@ Be sure that qt5 is installed!
     make
     ./qTicTacToe
 Thats it!
+
+# Release
+The release is compiled on Arch GNU/Linux and needs qt_5.8
+
+# License
+This is free (as in freedom) software under GPLv3.
