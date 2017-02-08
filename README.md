@@ -6,5 +6,5 @@ Be sure that qt5 is installed!
 
     qmake qTicTacToe.pro
     make
-    ./qTicTacToe.pro
+    ./qTicTacToe
 Thats it!
