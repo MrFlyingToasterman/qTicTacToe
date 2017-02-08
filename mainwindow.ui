@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>qTicTacToe</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../crypthome/dmusiolik/Schreibtisch/ic_launcher/res/mipmap-mdpi/ic_launcher.png</normaloff>../../../../crypthome/dmusiolik/Schreibtisch/ic_launcher/res/mipmap-mdpi/ic_launcher.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
