@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 
 //GlobVarz
 QString player = "X";
@@ -36,6 +37,70 @@ bool check_used(int x, int y) {
         return false;
     }
 
+}
+
+bool check_posswin() {
+
+    for (int y = 0; y < 3; y++) {
+        for (int x = 0; x < 3; x++) {
+            if (playground[y][x] == "") {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool check_win() {
+
+    if(playground[0][0] == player && playground[0][1] == player && playground[0][2] == player) {
+        return true;
+    }
+    if(playground[1][0] == player && playground[1][1] == player && playground[1][2] == player) {
+        return true;
+    }
+    if(playground[2][0] == player && playground[2][1] == player && playground[2][2] == player) {
+        return true;
+    }
+
+    if(playground[0][0] == player && playground[1][0] == player && playground[2][0] == player) {
+        return true;
+    }
+    if(playground[0][1] == player && playground[1][1] == player && playground[2][1] == player) {
+        return true;
+    }
+    if(playground[0][2] == player && playground[1][2] == player && playground[2][2] == player) {
+        return true;
+    }
+
+    if(playground[0][0] == player && playground[1][1] == player && playground[2][2] == player) {
+        return true;
+    }
+    if(playground[0][2] == player && playground[1][1] == player && playground[2][0] == player) {
+        return true;
+    }
+
+    return false;
+}
+
+void MainWindow::cleanup() {
+
+    ui->pushButton->setText("");
+    ui->pushButton_2->setText("");
+    ui->pushButton_3->setText("");
+    ui->pushButton_4->setText("");
+    ui->pushButton_5->setText("");
+    ui->pushButton_6->setText("");
+    ui->pushButton_7->setText("");
+    ui->pushButton_8->setText("");
+    ui->pushButton_9->setText("");
+
+    for (int y = 0; y < 3; y++) {
+        for (int x = 0; x < 3; x++) {
+            playground[y][x] = "";
+        }
+    }
 }
 
 void MainWindow::btn_rename(int x, int y) {
@@ -80,6 +145,26 @@ void MainWindow::btn_rename(int x, int y) {
 
         //Save position to array
         playground[x][y] = player;
+
+        //Check if anyone has won yet
+        if (check_win()) {
+            QMessageBox mbox;
+            mbox.setText("Player " + player + " has won!");
+            mbox.exec();
+
+            //cleanup -> set all btns to ""
+            cleanup();
+        }
+
+        //Check if its possible to win
+        if (!check_posswin()) {
+            QMessageBox mbox;
+            mbox.setText("Nobody wins!");
+            mbox.exec();
+
+            //cleanup -> set all btns to ""
+            cleanup();
+        }
     }
 
 }

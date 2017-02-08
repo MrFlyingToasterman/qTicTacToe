@@ -19,6 +19,7 @@ public:
 
 public slots:
     void btn_rename(int, int);
+    void cleanup();
 
 private slots:
     void on_pushButton_clicked();
