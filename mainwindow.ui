@@ -26,8 +26,8 @@
    <string>qTicTacToe</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../../crypthome/dmusiolik/Schreibtisch/ic_launcher/res/mipmap-mdpi/ic_launcher.png</normaloff>../../../../crypthome/dmusiolik/Schreibtisch/ic_launcher/res/mipmap-mdpi/ic_launcher.png</iconset>
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
@@ -150,6 +150,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
