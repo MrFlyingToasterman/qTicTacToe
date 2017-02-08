@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void btn_rename(int);
+    void btn_rename(int, int);
 
 private slots:
     void on_pushButton_clicked();
